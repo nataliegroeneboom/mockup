@@ -14,14 +14,28 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.name %></td>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+          <div class="card">
+            <div class="article-title">
+             <%= link_to post.title, post_path(post) %>
+            </div>
+            <div class="article-body">
+                <%= truncate(post.content, length: 100) %>
+                <div class="article-meta-details">
+                    <small>Created by: <%=post.user.username if post.user %>, <%= time_ago_in_words(post.created_at) %> ago, 
+                    last updated: <%= time_ago_in_words(post.updated_at) %></small>
+                </div>
+
+            </div>
+            <div class="articles-actions">
+                <%= link_to 'Show', post %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>    
+        </div>
+        </div>
+     </div>
     <% end %>
   </tbody>
 </table>
