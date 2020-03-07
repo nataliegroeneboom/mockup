@@ -41,6 +41,22 @@
     }
     
 }
+.card{
+    margin-bottom: 15px;
+}
 .description{
     margin-top: 0px;
+}
+
+.article-title{
+    font-weight: bold;
+    font-size: 22px;
+&:hover{
+    background: none;
+}
+}
+
+
+.rails-btn{
+    color: '#fff'
 }
