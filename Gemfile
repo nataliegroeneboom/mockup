@@ -8,6 +8,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sqlite3', '~> 1.3.0'
 # Use SCSS for stylesheets
 gem 'bootstrap', '~> 4.4.1'
+gem 'will_paginate-bootstrap4'
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
@@ -27,7 +28,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'will_paginate', '3.0.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

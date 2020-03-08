@@ -3,6 +3,20 @@
  
  
  <div class="card col-sm-8 offset-sm-2">
+ <ul class="listing">
+   <div class="row d-flex justify-content-center">
+    <div class="col-md-4 offset-md-2">
+        <li>Created by: </li>
+        <li><%= link_to gravatar_for(@post.user), user_path(@post.user) %></li>
+        <li class="post-title">
+            <%= link_to @post.user.username, user_path(@post.user) %>
+        </li>
+        <li>
+             <small><%= pluralize(@post.user.posts.count, "post") if @post.user.posts %></small>
+        </li>
+    </div>
+   </div>
+ </ul>  
  <h4 class="center description"> Name </h4>
   <%= simple_format(@post.name)  %>
  <h4 class="center"> Description </h4>
