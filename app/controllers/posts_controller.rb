@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /posts/1
@@ -24,9 +24,8 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    byebug
     @post = Post.new(post_params)
-    @post.user = s
+    @post.user = User.first
     if @post.save
     flash[:success] = "Post was successfully saved"
     redirect_to post_path(@post)
