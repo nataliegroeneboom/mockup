@@ -24,8 +24,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    byebug
     @post = Post.new(post_params)
-    @post.user = User.first
+    @post.user = s
     if @post.save
     flash[:success] = "Post was successfully saved"
     redirect_to post_path(@post)
