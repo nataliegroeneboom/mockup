@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root :to => "home#index"
    resources :posts
-
    get 'signup', to: 'users#new'
    resources :users, except: [:new]
   # The priority is based upon order of creation: first created -> highest priority.
