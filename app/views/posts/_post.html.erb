@@ -15,11 +15,13 @@
                 last updated: <%= time_ago_in_words(post.updated_at) %>
                 </small>
            </div>     
-              </div>        
-            <div class="article-actions">
-                    <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary rails-btn" %> 
-                    <%= button_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger rails-btn"%>
-            </div>
+              </div>    
+            <% if logged_in? && current_user == post.user %>      
+                <div class="article-actions">
+                        <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary rails-btn" %> 
+                        <%= button_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger rails-btn"%>
+                </div>
+            <% end %>
 
           </div>
           </div>

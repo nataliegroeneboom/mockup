@@ -22,10 +22,12 @@
  <h4 class="center"> Description </h4>
      <%= simple_format(@post.content) %>
         <div class="article-actions">
+        <% if logged_in? && current_user == @post.user %>
               <%= button_to 'Edit', edit_post_path(@post), class: "btn btn-primary rails-btn" %> 
               <%= button_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger rails-btn"%>
+        <% end %>      
               <%= button_to 'View all articles', posts_path, class: "btn btn-success rails-btn"%>
-
+    
       </div>
   </div>
 
