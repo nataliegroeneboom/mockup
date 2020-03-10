@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.user = User.first
+    @post.user = current_user
     if @post.save
     flash[:success] = "Post was successfully saved"
     redirect_to post_path(@post)
