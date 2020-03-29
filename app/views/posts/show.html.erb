@@ -21,6 +21,9 @@
   <%= simple_format(@post.name)  %>
  <h4 class="center"> Description </h4>
      <%= simple_format(@post.content) %>
+      <% if @post.categories.any? %>
+        <p>Categories: <%= render @post.categories %></p>
+      <% end %>
         <div class="article-actions">
         <% if logged_in? && (current_user == @post.user || current_user.admin) %>
               <%= button_to 'Edit', edit_post_path(@post), class: "btn btn-primary rails-btn" %> 

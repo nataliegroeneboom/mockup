@@ -15,7 +15,12 @@
                 last updated: <%= time_ago_in_words(post.updated_at) %>
                 </small>
            </div>     
-              </div>    
+              </div> 
+           
+              <% if post.categories.any? %>
+                <p class="ml-4">Categories: <%= render post.categories %></p>
+              <% end %>  
+          
             <% if logged_in? && (current_user == post.user || current_user.admin?) %>      
                 <div class="article-actions">
                         <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary rails-btn" %> 
